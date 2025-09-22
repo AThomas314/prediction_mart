@@ -13,6 +13,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      RUSTFLAGS: '--cfg getrandom_backend="wasm_js"'
 
     steps:
     
@@ -24,6 +26,9 @@ jobs:
       run: cargo binstall dioxus-cli
     - name: Build
       run: dx build --release
+        
+
+
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
