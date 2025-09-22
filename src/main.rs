@@ -92,6 +92,8 @@ fn TradingDashboard(
     mut shares_held: Signal<String>,
     payout: f32,
 ) -> Element {
+    
+    let payout = format!("{:.2}", payout);
     rsx! {
         div {
             style: "flex: 2; min-width: 500px; background: #1e2a38; color: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px;",
@@ -127,7 +129,7 @@ fn TradingDashboard(
                 p { class: "payout", style: "margin: 0; color: #e0e6ed;", "Payout for ",
                    span { style: "font-weight: bold; color: #58a6ff;", "{shares_held}" , " shares: "},
                    span { style: "font-weight: bold; color: #4dffaf;", "{payout}"},
-                //    span { style: "font-weight: bold; color: #4dffaf;", "{format!("{:.2}", payout)}" }
+
                 }
             }
         }
