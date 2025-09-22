@@ -138,22 +138,6 @@ fn generate_chart(data: Signal<Vec<f32>>) -> String {
 
 #[component]
 fn X_Feed(feed_url: String, placeholder_text: String) -> Element {
-    // 1. Create an evaluator to run JavaScript. This is the modern Dioxus hook.
-
-    // 2. Use an effect that runs after every render.
-    // By providing no dependencies array, this effect is re-run each time
-    // the component renders, which is exactly what we need.
-    use_effect(move || {
-        let js = r#"
-            // Check if the Twitter script object (twttr) is available on the window
-            if (window.twttr) {
-                // If it is, tell it to scan the document and load any new widgets
-                window.twttr.widgets.load();
-            }
-        "#;
-        // Run the JavaScript
-        eval(js);
-    });
 
     rsx! {
         Script { src:"https://elfsightcdn.com/platform.js" }
