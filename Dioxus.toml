@@ -1,6 +1,7 @@
 [application]
 
 [web.app]
+base_path = "prediction_mart.github.io"
 
 # HTML title tag content
 title = "prediction_mart"
