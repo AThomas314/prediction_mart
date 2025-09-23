@@ -1,0 +1,8 @@
+1. What rust crates can be used to create a static webpage
+2. Can a Dioxus webapp be hosted on GitHub pages
+3. how to install dioxus
+4. create a basic webapp in diouxus
+5. Add a chart to this dioxus webapp 
+6. Add a button to update the chart
+7. Embed a live feed from twitter into this webapp
+8. Style this webapp professionally

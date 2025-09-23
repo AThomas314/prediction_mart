@@ -58,9 +58,15 @@ fn InformationCard() -> Element {
             style: "background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 30px;",
             h2 {
                 style: "color: #1e2a38; border-bottom: 2px solid #e0e6ed; padding-bottom: 10px; margin-top: 0;",
-                "Mission & Personas"
+                "Welcome to PredictionMart"
             }
             Mission {}
+
+            DefinitionalPreliminaries {}
+            OperationalDetails {}
+            ExampleTransactions {}
+            
+
             h3 {
                 style: "color: #2c3e50; margin-top: 25px;",
                 "Our Target Audience: Who Trades on PredictionMart?"
@@ -71,15 +77,15 @@ fn InformationCard() -> Element {
             }
             Persona {
                 title: "The Financial Professional",
-                description: "Meet Arjun: A quantitative analyst at a hedge fund in Mumbai. Arjun uses PredictionMart to hedge his portfolio against specific geopolitical risks and to discover new sources of alpha that aren't correlated with traditional stock markets. He values the platform for its ability to isolate event-specific outcomes, like 'Will the RBI cut interest rates in the next quarter?'"
+                description: "Meet Alex: A quantitative analyst at a hedge fund. Alex uses PredictionMart to hedge their portfolio against specific geopolitical risks and to discover new sources of alpha that aren't correlated with traditional stock markets. They value the platform for its ability to isolate event-specific outcomes, like 'Will the central bank cut interest rates in the next quarter?'"
             }
             Persona {
                 title: "The Industry Insider",
-                description: "Meet Priya: A senior product manager at a major tech firm in Bangalore. With deep domain expertise in AI development, Priya uses PredictionMart to monetize her specialized knowledge. She trades on markets like, 'Will Apple release an AI-powered iPhone by June 2025?' because her understanding of supply chains and R&D timelines gives her an edge over the broader market."
+                description: "Meet Jamie: A senior product manager at a major tech firm. With deep domain expertise in AI development, Jamie uses PredictionMart to monetize their specialized knowledge. They trade on markets like, 'Will a major tech company release a consumer AI device by June 2025?' because their understanding of supply chains and R&D timelines gives them an edge over the broader market."
             }
             Persona {
                 title: "The Informed Strategist",
-                description: "Meet Kenji: A political science researcher in Singapore. Kenji is an expert on international trade policy. He uses PredictionMart to test his hypotheses on geopolitical events in a real-world environment. For him, the platform is a tool to validate his analysis and profit from his insights on complex topics like, 'Will the China-US trade deficit narrow by 5% in 2026?'"
+                description: "Meet Casey: A political science researcher. Casey is an expert on international trade policy. They use PredictionMart to test hypotheses on geopolitical events in a real-world environment. For them, the platform is a tool to validate their analysis and profit from insights on complex topics like, 'Will the China-US trade deficit narrow by 5% in 2026?'"
             }
         }
     )
@@ -250,4 +256,121 @@ fn generate_chart(data: Signal<Vec<f32>>) -> String {
     
     let encoded_png = base64::Engine::encode(&base64::engine::general_purpose::STANDARD, png_buffer);
     format!("data:image/png;base64,{}", encoded_png)
+}
+
+#[component]
+fn ExampleTransactions() -> Element {
+    rsx!(
+        div {
+            h3 { style: "color: #2c3e50; margin-top: 25px;", "Example Transactions: Seeing it in Action" }
+
+            // Example 1
+            div { style: "margin-bottom: 20px; border-left: 3px solid #007bff; padding-left: 15px;",
+                p {
+                    style: "font-weight: bold; color: #1e2a38; margin-bottom: 5px;",
+                    "Example 1: Profiting from a 'YES' Prediction"
+                }
+                p { style: "line-height: 1.6; color: #555; margin: 0;",
+                    strong{"Market: "} "'Will the central bank cut interest rates in the next quarter?'"
+                }
+                 p { style: "line-height: 1.6; color: #555; margin: 5px 0;",
+                    strong{"Alex's Analysis: "} "Alex believes a rate cut is very likely and sees that 'YES' shares are trading at only $0.70 (a 70% implied probability)."
+                }
+                p { style: "line-height: 1.6; color: #555; margin: 5px 0;",
+                    strong{"Action: "} "They buy 100 'YES' shares for a total cost of ",
+                    code { style: "background: #eef; padding: 2px 5px; border-radius: 3px;", "100 shares * $0.70/share = $70.00"}, "."
+                }
+                 p { style: "line-height: 1.6; color: #555; margin: 5px 0;",
+                    strong{"Outcome: "} "The central bank announces a rate cut. The market resolves to 'YES'."
+                }
+                p { style: "line-height: 1.6; color: #555; margin: 5px 0;",
+                    strong{"Result: "} "Alex's shares are now worth $1.00 each. They redeem them for $100. Their profit is ",
+                    code { style: "background: #eef; padding: 2px 5px; border-radius: 3px;", "$100.00 (payout) - $70.00 (cost) = $30.00"}, "."
+                }
+            }
+
+            // Example 2
+            div { style: "margin-bottom: 20px; border-left: 3px solid #dc3545; padding-left: 15px;",
+                p {
+                    style: "font-weight: bold; color: #1e2a38; margin-bottom: 5px;",
+                    "Example 2: Profiting from a 'NO' Prediction"
+                }
+                 p { style: "line-height: 1.6; color: #555; margin: 0;",
+                    strong{"Market: "} "'Will a major tech company release a consumer AI device by June 2025?'"
+                }
+                 p { style: "line-height: 1.6; color: #555; margin: 5px 0;",
+                    strong{"Jamie's Analysis: "} "Jamie, an industry insider, knows this timeline is too aggressive. The 'YES' shares are trading at $0.80, which means 'NO' shares are trading at $0.20 (since $1.00 - $0.80 = $0.20)."
+                }
+                 p { style: "line-height: 1.6; color: #555; margin: 5px 0;",
+                    strong{"Action: "} "They buy 200 'NO' shares for a total cost of ",
+                    code { style: "background: #eef; padding: 2px 5px; border-radius: 3px;", "200 shares * $0.20/share = $40.00"}, "."
+                }
+                 p { style: "line-height: 1.6; color: #555; margin: 5px 0;",
+                    strong{"Outcome: "} "The deadline passes, and no such device is released. The market resolves to 'NO'."
+                }
+                p { style: "line-height: 1.6; color: #555; margin: 5px 0;",
+                    strong{"Result: "} "Jamie's 'NO' shares are now worth $1.00 each. They redeem them for $200. Their profit is ",
+                    code { style: "background: #eef; padding: 2px 5px; border-radius: 3px;", "$200.00 (payout) - $40.00 (cost) = $160.00"}, "."
+                }
+            }
+        }
+    )
+}
+
+
+#[component]
+fn OperationalDetails() -> Element {
+    rsx!(
+        div {
+            h3 { style: "color: #2c3e50; margin-top: 25px;", "Operational Details: Getting Started" }
+            ol { style: "line-height: 1.8; color: #555; padding-left: 20px;",
+                li {
+                    strong{"1. Sign Up: "} "Create your secure account on PredictionMart. This gives you access to all our markets."
+                }
+                li {
+                    strong{"2. Deposit Funds: "} "Add funds to your account wallet. We support various payment methods for your convenience."
+                }
+                li {
+                    strong{"3. Browse Markets: "} "Explore the available markets. Find a question where you believe your knowledge gives you an edge over the current market price."
+                }
+                li {
+                    strong{"4. Buy & Sell Shares: "} "Based on your prediction, buy 'YES' shares if you think the event will happen, or 'NO' shares if you think it won't. You can sell your shares at any time before the market closes."
+                }
+            }
+        }
+    )
+}
+
+#[component]
+fn DefinitionalPreliminaries() -> Element {
+    rsx!(
+        div {
+            h3 { style: "color: #2c3e50; margin-top: 25px;", "Some Definitional and Conceptual Preliminaries" }
+            p {
+                style: "line-height: 1.6; color: #555;",
+                strong {"What is a Prediction Market? "},
+                "A prediction market is a marketplace where people can trade contracts, or 'shares', based on the outcomes of future events. Think of it like a stock market, but instead of trading shares of a company, you're trading on the probability of an event happening (e.g., 'Will Candidate X win the election?')."
+            }
+            p {
+                style: "line-height: 1.6; color: #555;",
+                strong {"How Share Prices Represent Probabilities: "},
+                "The price of a share in a prediction market directly reflects the market's collective belief about the probability of an event occurring. Prices range from $0.00 to $1.00."
+            }
+            ul { style: "line-height: 1.6; color: #555; padding-left: 20px;",
+                li {
+                    "A share price of ", strong{"$0.65"}, " for 'YES' implies that the market participants, on average, believe there is a 65% chance the event will happen."
+                }
+                li {
+                    "If the event ", strong{"does occur"}, ", each 'YES' share pays out $1.00, and each 'NO' share becomes worthless ($0.00)."
+                }
+                 li {
+                    "If the event ", strong{"does not occur"}, ", each 'NO' share pays out $1.00, and each 'YES' share becomes worthless ($0.00)."
+                }
+            }
+            p {
+                style: "line-height: 1.6; color: #555;",
+                "This simple mechanism allows the market to aggregate diverse information and opinions into a single, real-time probability estimate."
+            }
+        }
+    )
 }
