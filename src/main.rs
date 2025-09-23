@@ -161,7 +161,6 @@ fn LiveFeed() -> Element {
 }
 
 
-// --- Low-Level & Utility Components ---
 
 #[component]
 fn Mission() -> Element {
@@ -325,16 +324,16 @@ fn OperationalDetails() -> Element {
             h3 { style: "color: #2c3e50; margin-top: 25px;", "Operational Details: Getting Started" }
             ol { style: "line-height: 1.8; color: #555; padding-left: 20px;",
                 li {
-                    strong{"1. Sign Up: "} "Create your secure account on PredictionMart. This gives you access to all our markets."
+                    strong{"Sign Up: "} "Create your secure account on PredictionMart. This gives you access to all our markets."
                 }
                 li {
-                    strong{"2. Deposit Funds: "} "Add funds to your account wallet. We support various payment methods for your convenience."
+                    strong{"Deposit Funds: "} "Add funds to your account wallet. We support various payment methods for your convenience."
                 }
                 li {
-                    strong{"3. Browse Markets: "} "Explore the available markets. Find a question where you believe your knowledge gives you an edge over the current market price."
+                    strong{"Browse Markets: "} "Explore the available markets. Find a question where you believe your knowledge gives you an edge over the current market price."
                 }
                 li {
-                    strong{"4. Buy & Sell Shares: "} "Based on your prediction, buy 'YES' shares if you think the event will happen, or 'NO' shares if you think it won't. You can sell your shares at any time before the market closes."
+                    strong{"Buy & Sell Shares: "} "Based on your prediction, buy 'YES' shares if you think the event will happen, or 'NO' shares if you think it won't. You can sell your shares at any time before the market closes."
                 }
             }
         }
