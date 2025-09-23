@@ -13,13 +13,13 @@ fn main() {
 
 #[component]
 fn App() -> Element {
-    let data_signal: Signal<Vec<f32>> = use_signal(|| update_data(Vec::new()));
+    let data_signal: Signal<Vec<f32>> = use_signal(|| update_data(Vec::with_capacity(50)));
     let shares_held = use_signal(String::new);
 
     // Derived state can be calculated here and passed down
     let current_val = data_signal.read().last().copied().unwrap_or(0.0);
     let num_shares_held = shares_held().parse::<i64>().unwrap_or_default();
-    let payout = num_shares_held as f32 * current_val;
+    let payout = num_shares_held as f32 * (1.0-current_val);
 
     rsx! {
         // Global styles
